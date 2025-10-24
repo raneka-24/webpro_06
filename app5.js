@@ -36,6 +36,53 @@ app.get("/omikuji2", (req, res) => {
   res.render( 'omikuji2', {result:luck} );
 });
 
+
+app.get("/jan", (req, res) => {
+  res.render('jan', {
+    your: 'まだ出ていない',
+    cpu: 'グーを出すよ〜',
+    judgement: '勝負してください！',
+    win: 0,
+    total: 0
+  });
+});
+
+
+app.get("/jan_play", (req, res) => {
+  let hand = req.query.hand;
+  let win = Number(req.query.win);
+  let total = Number(req.query.total);
+  console.log( {hand, win, total});
+  const num = Math.floor(Math.random() * 3 + 1);
+  let cpu = '';
+  if (num == 1) cpu = 'グー';
+  else if (num == 2) cpu = 'チョキ';
+  else cpu = 'パー';
+
+  let judgement = '';
+  total += 1;
+  if (hand == cpu) {
+    judgement = 'あいこ';
+  } else if (
+    (hand == 'グー' && cpu == 'チョキ') ||
+    (hand == 'パー' && cpu == 'グー') ||
+    (hand == 'チョキ' && cpu == 'パー')
+  ) {
+    judgement = '勝ち';
+    win += 1;
+  } else {
+    judgement = '負け';
+  }
+  const display = {
+    your: hand,
+    cpu: cpu,
+    judgement: judgement,
+    win: win,
+    total: total
+  };
+  res.render('jan', display);
+});
+
 app.get("/janken", (req, res) => {
   let hand = req.query.hand;
   let win = Number( req.query.win );

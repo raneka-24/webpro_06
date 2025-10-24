@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>じゃんけんたーいむ</title>
+</head>
+<body>
+    <h1>じゃんけんたーいむ</h1>
+    <p>あなたの手は<%= your %>！．</p>
+    <p>コンピュータは<%= cpu %>！．</p>
+    <p><b>結果：<%= judgement %></b></p>
+
+    <p>現在の成績：<%= total %>試合中 <%= win %>勝</p>
+    <hr>
+    
+    <form action="/jan_play" method="get">
+        <p>次は何を出す？</p>
+        <input type="radio" name="hand" id="radio1" value="グー">
+        <label for="radio1">グー</label><br>
+        <input type="radio" name="hand" id="radio2" value="チョキ">
+        <label for="radio2">チョキ</label><br>
+        <input type="radio" name="hand" id="radio3" value="パー">
+        <label for="radio3">パー</label><br>
+        <br>
+        
+        <input type="hidden" name="win" value="<%= win %>">
+        <input type="hidden" name="total" value="<%= total %>">
+        
+        <input type="submit" value="じゃんけん ポン！">
+    </form>   
+    <p><a href="/jan">じゃんけんを最初から始める</p>
+</body>
+</html>
