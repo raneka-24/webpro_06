@@ -5,31 +5,6 @@ app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 
-let station = [
-  { id:1, code:"JE01", name:"東京駅"},
-  { id:2, code:"JE07", name:"舞浜駅"},
-  { id:3, code:"JE12", name:"新習志野駅"},
-  { id:4, code:"JE13", name:"幕張豊砂駅"},
-  { id:5, code:"JE14", name:"海浜幕張駅"},
-  { id:6, code:"JE05", name:"新浦安駅"},
-];
-
-app.get("/keiyo", (req, res) => {
-  // 本来ならここにDBとのやり取りが入る
-  res.render('db1', { data: station });
-});
-
-app.get("/keiyo_add", (req, res) => {
-  let id = req.query.id;
-  let code = req.query.code;
-  let name = req.query.name;
-  let newdata = { id: id, code: code, name: name };
-  console.log("追加される新しいデータ:", newdata); // これが入力値通りか確認
-  station.push( newdata );
-  console.log("追加後のstation配列全体:", station);
-  res.render('db1', { data: station });
-});
-
 let station2 = [
   { id:1, code:"JE01", name:"東京駅", change:"総武本線，中央線，etc", passengers:403831, distance:0 },
   { id:2, code:"JE02", name:"八丁堀駅", change:"日比谷線", passengers:31071, distance:1.2 },
@@ -40,6 +15,7 @@ let station2 = [
   { id:7, code:"JE18", name:"蘇我駅", change:"内房線，外房線", passengers:31328, distance:43.0 },
 ];
 
+// 一覧
 app.get("/keiyo2", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
   res.render('keiyo2', {data: station2} );
@@ -102,6 +78,8 @@ app.post("/keiyo2/update/:number", (req, res) => {
   res.redirect('/keiyo2' );
 });
 
+
+
 app.get("/hello1", (req, res) => {
   const message1 = "Hello world";
   const message2 = "Bon jour";
@@ -132,53 +110,6 @@ app.get("/omikuji2", (req, res) => {
   else if( num==2 ) luck = '中吉';
 
   res.render( 'omikuji2', {result:luck} );
-});
-
-
-app.get("/jan", (req, res) => {
-  res.render('jan', {
-    your: 'まだ出ていない',
-    cpu: 'グーを出すよ〜',
-    judgement: '勝負してください！',
-    win: 0,
-    total: 0
-  });
-});
-
-
-app.get("/jan_play", (req, res) => {
-  let hand = req.query.hand;
-  let win = Number(req.query.win);
-  let total = Number(req.query.total);
-  console.log( {hand, win, total});
-  const num = Math.floor(Math.random() * 3 + 1);
-  let cpu = '';
-  if (num == 1) cpu = 'グー';
-  else if (num == 2) cpu = 'チョキ';
-  else cpu = 'パー';
-
-  let judgement = '';
-  total += 1;
-  if (hand == cpu) {
-    judgement = 'あいこ';
-  } else if (
-    (hand == 'グー' && cpu == 'チョキ') ||
-    (hand == 'パー' && cpu == 'グー') ||
-    (hand == 'チョキ' && cpu == 'パー')
-  ) {
-    judgement = '勝ち';
-    win += 1;
-  } else {
-    judgement = '負け';
-  }
-  const display = {
-    your: hand,
-    cpu: cpu,
-    judgement: judgement,
-    win: win,
-    total: total
-  };
-  res.render('jan', display);
 });
 
 app.get("/janken", (req, res) => {
