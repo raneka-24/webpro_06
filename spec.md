@@ -45,7 +45,7 @@
 | 　編集　 | /pokemon/edit/:id   | GET  | pkdb_edit.ejs |
 | 　更新　 | /pokemon/update/:id | POST | /pokemon/:id  |
 | 　削除　 | /pokemon/delete/:id | POST | /pokemon      |
-## パーカッションの楽器一覧
+## 打楽器一覧
 ### 1. データ構造
 #### 1.1. 機能
 打楽器の日本語名，ローマ字名，楽器のグループ，起源となる地域などの静的な情報を保持し，管理する．
@@ -56,7 +56,7 @@
 | gzyuon | string | ローマ字名の頭文字 |
 | romaji | string | ローマ字名      　|
 | name   | string | 日本語名      　　|
-| group  | string | 分類さ           |
+| group  | string | 分類           |
 | region | string | 起源となる地域 　　|
 ### 2. ページ遷移
 | 目的| リソース名 | HTTPメソッド | 遷移先 |
