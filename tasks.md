@@ -4,8 +4,8 @@
   - [x] データ構造の決定 :thinking:
   - [x] ページ構造の検討 :thinking:
   - [x] ページ遷移の検討 :thinking:
-  - [ ] HTTPメソッドとリソース名の決定
-  - [ ] ページ遷移図の作成 :writing_hand:
+  - [x] HTTPメソッドとリソース名の決定
+  - [x] ページ遷移図の作成 :writing_hand:
   - [ ] ページ構造の決定
   - [ ] ドキュメントの構成の検討 :thinking:
   - [ ] 概要 :writing_hand:

@@ -1,0 +1,19 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>歴代ポケモンゲーム</title>
+</head>
+<body>
+  <h2>歴代ポケモンゲーム一覧</h2>
+  <table>
+    <tbody>
+      <% for( let row of data ) { %>
+        <%= row.id %>作品目<br>
+        <a href="/pokemon/data?id=<%= row.id %>"><%= row.name %></a><br>
+      <% } %>
+    </tbody>
+  </table>
+  <a href="/pokemon/add">ソフトの追加</a>
+</body>
+</html>
