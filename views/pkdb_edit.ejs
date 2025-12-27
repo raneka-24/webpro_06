@@ -1,0 +1,17 @@
+<!Doctype html>
+<html>
+<head><meta charset="utf-8"><title>料理編集</title></head>
+<body>
+  <h2>「<%= data.name %>」を編集</h2>
+  <form action="/pokemon/update/<%= id %>" method="POST">
+    発売日<br><input type="text" name="hatubai" value="<%= data.hatubai %>"><br>
+    名前<br><textarea name="name" rows="10" cols="50"><%= data.name %></textarea><br>
+    世代<br><input type="text" name="sedai" value="<%= data.sedai %>"><br>
+    地方<br><input type="text" name="tihou" value="<%= data.tihou %>"><br>
+    最初に選べるポケモン(御三家)<br><textarea name="gosanke" rows="5" cols="40"><%= data.gosanke %></textarea><br>
+    対応ハード<br><input type="text" name="hard" value="<%= data.hard %>"><br>
+    <button type="submit">更新する</button>
+  </form>
+  <a href="/pokemon/data/<%= id %>">詳細に戻る</a>
+</body>
+</html>

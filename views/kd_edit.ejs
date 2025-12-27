@@ -1,0 +1,16 @@
+<!Doctype html>
+<html>
+<head><meta charset="utf-8"><title>料理編集</title></head>
+<body>
+  <h2>「<%= data.name %>」を編集</h2>
+  <form action="/kondate/update/<%= id %>" method="POST">
+    料理名<br><input type="text" name="name" value="<%= data.name %>"><br>
+    人数分<br><input type="text" name="kazu" value="<%= data.kazu %>"><br>
+    材料<br><textarea name="zai" rows="10" cols="50"><%= data.zai %></textarea><br>
+    作り方<br><textarea name="how" rows="10" cols="50"><%= data.how %></textarea><br>
+    画像ファイル名<br><input type="text" name="img" value="<%= data.img %>"><br>
+    <button type="submit">更新する</button>
+  </form>
+  <a href="/kondate/data/<%= id %>">詳細に戻る</a>
+</body>
+</html>

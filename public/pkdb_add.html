@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>新規ポケモンタイトルを追加</title>
+</head>
+<body>
+    <h2>新規ポケモンタイトルを追加</h2>
+    <form action="/pokemon" method="POST">
+        発売日<input type="text" name="hatubai"><br><br>
+        
+        名前<br><textarea name="name" rows="5" cols="40" placeholder="例: ポケットモンスター 赤・緑" required></textarea><br><br>
+
+        世代<input type="text" name="sedai" placeholder="例: 第1世代"><br><br>
+
+        地方<input type="text" name="tihou" placeholder="例: カントー地方"><br><br>
+
+        最初に選べるポケモン(御三家)<br><textarea name="gosanke" rows="5" cols="40" placeholder="例: フシギダネ,ヒトカゲ,ゼニガメ"></textarea><br><br>
+
+        対応ハード<br><textarea name="hard" rows="5" cols="40" placeholder="例: ゲームボーイ,ゲームボーイカラー,ゲームボーイアドバンス"></textarea><br><br>
+        
+        <button type="submit">この内容で追加する</button>
+    </form>
+    <br>
+    <a href="/pokemon">一覧に戻る</a>
+</body>
+</html>

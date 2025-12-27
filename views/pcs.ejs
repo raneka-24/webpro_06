@@ -1,0 +1,24 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>打楽器一覧</title>
+</head>
+<body>
+  <h2>打楽器一覧</h2>
+  <table>
+    <tbody>
+      <% let number = 0 %> <% for( let row of data ) { %> <tr>
+        <td>
+          [<%= row.alfa %>]<br>
+          <a href="/pacas/data/<%= row.id %>"><%= row.name %></a>
+          [<a href="/pacas/delete/<%= row.id %>" onclick="return confirm('本当に削除してもよろしいですか？');">削除</a>]
+        </td>
+      </tr>
+      <% number += 1 %> <% } %>
+    </tbody>
+  </table>
+  <br>
+  <a href="/pacas/add">打楽器の追加</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>料理の追加</title>
+</head>
+<body>
+    <h2>新しい料理を追加</h2>
+    <form action="/kondate" method="POST">
+        料理名: <input type="text" name="name" required><br><br>
+        
+        人数分: <input type="text" name="kazu" placeholder="例: 2人分"><br><br>
+        
+        材料:<br>
+        <textarea name="zai" rows="10" cols="50" placeholder="材料を・で区切って入力"></textarea><br><br>
+        
+        作り方:<br>
+        <textarea name="how" rows="10" cols="50" placeholder="手順を・で区切って入力"></textarea><br><br>
+        
+        画像ファイル名: <input type="text" name="img" placeholder="curry.jpgなど"><br><br>
+        
+        <button type="submit">この内容で追加する</button>
+    </form>
+    <br>
+    <a href="/kondate">一覧に戻る</a>
+</body>
+</html>

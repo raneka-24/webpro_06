@@ -1,0 +1,30 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>料理詳細</title>
+</head>
+<body>
+  <h2><%= data.name %>の詳細</h2>
+
+  <% if (data.img) { %>
+    <img src="/public/images/<%= data.img %>" style="width: 300px; height: auto; border-radius: 8px;">
+  <% } %>
+  <h3>人数分</h3>
+  <p><%= data.kazu %></p>
+
+  <h3>材料</h3>
+  <p>
+    <%- data.zai.replace(/・/g, '<br>・') %>
+  </p>
+
+  <h3>作り方</h3>
+  <p>
+    <%- data.how.replace(/．/g, '．<br>') %>
+  </p>
+
+  <br><hr><br>
+  <a href="/kondate/edit/<%= id %>">このページの内容を編集する</a> |
+  <a href="/kondate">料理一覧に戻る</a>
+</body>
+</html>
+     

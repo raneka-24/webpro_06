@@ -1,0 +1,19 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>打楽器詳細</title>
+</head>
+<body>
+  <h2><%= data.name %>の詳細</h2>
+  <table>
+    <tbody>
+        <%= data.romaji %><br><br>
+        この楽器は<%= data.group %>のグループに属している<br>
+        発祥地は<%= data.region %>である<br>
+    </tbody>
+    <br><hr><br>
+    <a href="/pacas/edit/<%= id %>">このページの内容を編集する</a> |
+    <a href="/pacas">打楽器一覧に戻る</a>
+</body>
+</html>

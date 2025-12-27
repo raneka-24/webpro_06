@@ -55,7 +55,7 @@ stateDiagram-v2
 | 目的 | リソース名 | HTTPメソッド | 遷移先 |
 |:-|:-|:-|:-|
 | 一覧表示 | /pokemon            | GET  | pkdb.ejs      |
-| 新規作成 | /pokemon/add        | GET  | pkdb_add.ejs  |
+| 新規作成 | /pokemon/add        | GET  |   |
 | 　追加　 | /pokemon            | POST | /pokemon      |
 | 詳細表示 | /pokemon/:id        | GET  | pkdb_s.ejs    |
 | 　編集　 | /pokemon/edit/:id   | GET  | pkdb_edit.ejs |

@@ -8,12 +8,17 @@
   <h2>歴代ポケモンゲーム一覧</h2>
   <table>
     <tbody>
-      <% for( let row of data ) { %>
-        <%= row.id %>作品目<br>
-        <a href="/pokemon/data?id=<%= row.id %>"><%= row.name %></a><br>
-      <% } %>
+      <% let number = 0 %> <% for( let row of data ) { %> <tr>
+        <td>
+          <%= row.id %>作品目<br>
+          <a href="/pokemon/data/<%= number %>"><%= row.name %></a>
+          [<a href="/pokemon/delete/<%= number %>" onclick="return confirm('本当に削除してもよろしいですか？');">削除</a>]
+        </td>
+      </tr>
+      <% number += 1 %> <% } %>
     </tbody>
   </table>
+  <br>
   <a href="/pokemon/add">ソフトの追加</a>
 </body>
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>打楽器を追加</title>
+</head>
+<body>
+    <h2>新規ポケモンタイトルを追加</h2>
+    <form action="/pacas" method="POST">
+        ローマ字の頭文字<br><input type="text" name="alfa" required><br><br>
+        
+        ローマ字<br><input type="text" name="romaji" placeholder="例: Agogo"><br><br>
+
+        名前<br><input type="text" name="name" placeholder="例: アゴゴ"><br><br>
+
+        属しているグループ<br><input type="text" name="group" placeholder="例: ベル・チャイム系"><br><br>
+
+        発祥地<br><input type="text" name="region" placeholder="例: 西アフリカ"><br><br>
+
+        <button type="submit">この内容で追加する</button>
+    </form>
+    <br>
+    <a href="/pacas">一覧に戻る</a>
+</body>
+</html>

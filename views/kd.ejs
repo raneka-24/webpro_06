@@ -1,0 +1,28 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>料理一覧</title>
+</head>
+<body>
+  <h2>料理ルーレット</h2> 
+  <table>
+    <tbody>
+        <a href="/kondate/ruret">ここをクリックしてね！！</a><br><br>
+    </tbody>
+  </table>
+  <h2>料理一覧</h2>
+  <table>
+    <tbody>
+      <% let number = 0 %> <% for( let row of data ) { %> <tr>
+        <td>
+          <a href="/kondate/data/<%= number %>"><%= row.name %></a>
+          [<a href="/kondate/delete/<%= number %>" onclick="return confirm('本当に削除してもよろしいですか？');">削除</a>]
+        </td>
+      </tr>
+      <% number += 1 %> <% } %>
+    </tbody>
+  </table>
+  <a href="/kondate/add">新規追加</a>
+</body>
+</html>
