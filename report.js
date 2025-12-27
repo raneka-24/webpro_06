@@ -1,3 +1,4 @@
+"use strict";
 const express = require("express");
 const app = express();
 
@@ -42,27 +43,27 @@ app.post("/kondate", (req, res) => {
 });
 
 // 詳細表示
-app.get("/kondate/data/:id", (req, res) => {
+app.get("/kondate/data/:number", (req, res) => {
   const number = req.params.number;
   const detail = kondate_g[number];
   res.render('kd_s', {id: number, data: detail});
 });
 
 // 削除 (Delete)
-app.get("/kondate/delete/:id", (req, res) => {
+app.get("/kondate/delete/:number", (req, res) => {
   kondate_g.splice(req.params.number, 1);
   res.redirect('/kondate');
 });
 
 // 編集画面表示 (Edit)
-app.get("/kondate/edit/:id", (req, res) => {
+app.get("/kondate/edit/:number", (req, res) => {
   const number = req.params.number;
   const detail = kondate_g[number];
   res.render('kd_edit', {id: number, data: detail});
 });
 
 // 更新処理 (Update)
-app.post("/kondate/update/:id", (req, res) => {
+app.post("/kondate/update/:number", (req, res) => {
   const num = req.params.number;
   kondate_g[num].name = req.body.name;
   kondate_g[num].kazu = req.body.kazu;
@@ -103,7 +104,7 @@ app.get("/pokemon", (req, res) => {
   res.render('pkdb', {data: pokemon_g});
 });
 
-app.get("/pokemon/data/:id", (req, res) => {
+app.get("/pokemon/data/:number", (req, res) => {
   const number = req.params.number;
   const detail = pokemon_g[number];
   res.render('pkdb_s', {id: number, data: detail});
@@ -126,20 +127,20 @@ app.post("/pokemon", (req, res) => {
 });
 
 // 削除 (Delete)
-app.get("/pokemon/delete/:id", (req, res) => {
+app.get("/pokemon/delete/:number", (req, res) => {
   pokemon_g.splice(req.params.number, 1);
   res.redirect('/pokemon');
 });
 
 
 // 編集画面表示 (Edit)
-app.get("/pokemon/edit/:id", (req, res) => {
+app.get("/pokemon/edit/:number", (req, res) => {
   const number = req.params.number;
   const detail = pokemon_g[number];
   res.render('pkdb_edit', {id: number, data: detail});
 });
 
-app.post("/pokemon/update/:id", (req, res) => {
+app.post("/pokemon/update/:number", (req, res) => {
   const num = req.params.number;
   pokemon_g[num].hatubai = req.body.hatubai;
   pokemon_g[num].name = req.body.name;
